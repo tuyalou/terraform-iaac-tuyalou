@@ -1,14 +1,15 @@
 resource "aws_vpc" "main" {
   cidr_block = "${var.vpc_cidr}"
   tags = {
-    Name = "Team Infrastructure"
-    Environment = "Development" 
+    Name = "Terraform"
+    Department = "Development"
+    Team = "IT" 
     Created_by = "Tuba Loughlin"
   }
 }
-
+#######################################################
 # Private subnets
-########################################################################################################################
+#######################################################
 resource "aws_subnet" "private1" {
     vpc_id     = "${aws_vpc.main.id}"
     cidr_block = "${var.private1_cidr}"
@@ -33,11 +34,9 @@ resource "aws_subnet" "private3" {
       Environment = "Development"
   }
 }
-########################################################################################################################
-
-
+########################################################
 # Public Subnet
-########################################################################################################################
+########################################################
 resource "aws_subnet" "public1" {
     vpc_id     = "${aws_vpc.main.id}"
     cidr_block = "${var.public1_cidr}"
@@ -62,14 +61,9 @@ resource "aws_subnet" "public3" {
       Environment = "Development"
   }
 }
-########################################################################################################################
-
-
-# resource "aws_nat_gateway" "gw" {
-#   allocation_id = "${aws_eip.nat.id}"
-#   subnet_id     = "${aws_subnet.public[1].id}"
-# }
-
+#######################################################
+# Nat Gateway,Internet Gateway, Route Tables
+#######################################################
 resource "aws_eip" "nat" {
   vpc      = true
 }
@@ -115,8 +109,9 @@ resource "aws_route_table" "n" {
     Team = "Infrastructure"
   }
 }
-
+#########################################################
 # Route Table association
+#######################################################
 resource "aws_route_table_association" "b1" {
   subnet_id      = "${aws_subnet.public1.id}"
   route_table_id = "${aws_route_table.r.id}"
