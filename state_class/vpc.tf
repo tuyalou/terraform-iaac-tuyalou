@@ -1,42 +1,37 @@
 resource "aws_vpc" "main" {
   cidr_block = "${var.vpc_cidr}"
-  tags = {
-    Name = "Dev-IT-Infrastructure-tuba"
-  }
 }
 
-# Public subnets
+# Private subnets
 ########################################################################################################################
-resource "aws_subnet" "public1" {
+resource "aws_subnet" "private1" {
     vpc_id     = "${aws_vpc.main.id}"
-    cidr_block = "${var.public1_cidr}"
+    cidr_block = "10.0.1.0/24"
 }
-resource "aws_subnet" "public2" {
+resource "aws_subnet" "private2" {
     vpc_id     = "${aws_vpc.main.id}"
-    cidr_block = "${var.public2_cidr}"
+    cidr_block = "10.0.2.0/24"
 }
-resource "aws_subnet" "public3" {
+resource "aws_subnet" "private3" {
     vpc_id     = "${aws_vpc.main.id}"
-    cidr_block = "${var.public3_cidr}"
+    cidr_block = "10.0.3.0/24"
 }
 ########################################################################################################################
 
 
 # Public Subnet
 ########################################################################################################################
-# Private subnets
-########################################################################################################################
-resource "aws_subnet" "private1" {
+resource "aws_subnet" "public1" {
     vpc_id     = "${aws_vpc.main.id}"
-    cidr_block = "${var.private1_cidr}"
+    cidr_block = "10.0.101.0/24"
 }
-resource "aws_subnet" "private2" {
+resource "aws_subnet" "public2" {
     vpc_id     = "${aws_vpc.main.id}"
-    cidr_block = "${var.private2_cidr}"
+    cidr_block = "10.0.102.0/24"
 }
-resource "aws_subnet" "private3" {
+resource "aws_subnet" "public3" {
     vpc_id     = "${aws_vpc.main.id}"
-    cidr_block = "${var.private3_cidr}"
+    cidr_block = "10.0.103.0/24"
 }
 ########################################################################################################################
 
