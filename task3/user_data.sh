@@ -3,8 +3,11 @@ sudo su -
 yum install httpd -y
 systemctl start httpd
 systemctl enable httpd
-yum install curl -y
-curl https://assets.nagios.com/downloads/nagiosxi/install.sh | sh
+
+
+# #!/bin/bash
+# sudo yum install curl -y
+# sudo curl https://assets.nagios.com/downloads/nagiosxi/install.sh | sh
 
 # wget https://www.free-css.com/assets/files/free-css-templates/download/page239/black.zip
 # unzip black.zip
