@@ -1,7 +1,4 @@
-# resource "aws_internet_gateway" "gw" {
-#   vpc_id = "${aws_vpc.main.id}"
-#   tags = {
-#     Name = "internet gateway"
-#     Team = "Infrastructure"
-#   }
-# }
+resource "aws_internet_gateway" "gw" {
+  vpc_id = "${aws_vpc.main.id}"
+  tags = "${var.tags}"
+}
