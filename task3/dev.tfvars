@@ -1,5 +1,5 @@
-region          =      "us-east-2"
-region_name     =      "ohio"
+region          =      "us-east-1"
+region_name     =      "virginia"
 ami             =      "ami-07ea389d604b141bb"
 vpc_cidr        =      "192.168.0.0/16"
 public1_cidr    =      "192.168.1.0/24"
