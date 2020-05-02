@@ -7,7 +7,7 @@ resource "aws_instance" "web" {
   subnet_id     = "${aws_subnet.public1.id}"
   source_dest_check = false
   availability_zone = "${var.region}${var.az1}"
-  user_data       = "${file("user_data.sh")}"
+  user_data       = "${file("httpd.sh")}"
   tags = "${var.tags}"
 }
 
@@ -20,6 +20,6 @@ resource "aws_instance" "backup" {
   subnet_id     = "${aws_subnet.private1.id}"
   associate_public_ip_address = false
   source_dest_check = false
-  user_data       = "${file("user_data2.sh")}"
+  user_data       = "${file("mysql.sh")}"
   tags = "${var.tags}"
 }
