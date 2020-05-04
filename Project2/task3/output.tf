@@ -52,7 +52,7 @@ output "nagios_key" {
   value = "${aws_key_pair.us-east-1-key.key_name}"
 }
 output "message" {
-  value = "reviewed task"
+  value = "NagiosXI Server Installation"
 }
 # output "nagios_user" {
 #     value = "${null_resource.nagios_user.user}"
