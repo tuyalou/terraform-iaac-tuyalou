@@ -11,9 +11,9 @@ data "aws_ami" "centos" {
   }
 }
 
-resource "aws_instance" "nagiosserver" {
+resource "aws_instance" "nagios_server" {
   ami           = "${data.aws_ami.centos.id}"
-  instance_type = "t2.micro"
+  instance_type = "t2.medium"
   associate_public_ip_address = true
   key_name      =  "${aws_key_pair.us-east-1-key.key_name}"
   vpc_security_group_ids = ["${aws_security_group.nagios.id}"]
@@ -30,7 +30,7 @@ resource "aws_instance" "nagiosserver" {
     }
     inline = [
       "sudo yum install curl -y",
-      "sudo curl https://assets.nagios.com/downloads/nagiosxi/install.sh | sh",
+      "sudo curl https://assets.nagios.com/downloads/nagiosxi/install.sh | sudo sh",
     ]
   }
 }

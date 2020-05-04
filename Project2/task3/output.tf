@@ -34,10 +34,12 @@ output "region" {
 output "Tags" {
     value = "${var.tags}"
 }
-output "instance_id" {
-  value = "${aws_instance.nagiosserver.id}"
+output "nagios_ip" {
+  value = "${aws_instance.nagios_server.public_ip}"
 }
-
+output "nagios_username" {
+  value = "${aws_instance.nagios_server.key_name}"
+}
 output "centos" {
   value = "${data.aws_ami.centos.id}"
 }
@@ -46,7 +48,7 @@ output "elastic_ip" {
     value = "${aws_eip.nat.id}"
 }
 
-output "instance_key" {
+output "nagios_key" {
   value = "${aws_key_pair.us-east-1-key.key_name}"
 }
 output "message" {
