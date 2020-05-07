@@ -18,7 +18,9 @@ output  "private_subnet" {
        "${aws_subnet.private3.id}    ${aws_subnet.private3.cidr_block}    ${aws_subnet.private3.availability_zone}"
     ]
 }
-
+output "centos" {
+  value = "${data.aws_ami.centos.id}"
+}
 output "aws_nat_gateway" {
     value = "${aws_nat_gateway.gw.id}"
 }
@@ -26,7 +28,9 @@ output "aws_nat_gateway" {
 output "aws_internet_gateway" {
     value = "${aws_internet_gateway.gw.id}"
 }
-
+# output "elastic_ip" {
+#     value = "${aws_eip.nat.id}"
+# }
 output "region" {
     value = "${var.region}      ${var.region_name}"
 }
@@ -38,22 +42,13 @@ output "nagios_ip" {
   value = "${aws_instance.nagios_server.public_ip}"
 }
 output "nagios_username" {
-  value = "${aws_instance.nagios_server.key_name}"
+  value = "nagiosadmin"
 }
-output "centos" {
-  value = "${data.aws_ami.centos.id}"
-}
-
-output "elastic_ip" {
-    value = "${aws_eip.nat.id}"
+output "nagios_password" {
+  value = "team2project2"
 }
 
-output "nagios_key" {
-  value = "${aws_key_pair.us-east-1-key.key_name}"
-}
-output "message" {
+output "Project Name" {
   value = "NagiosXI Server Installation"
 }
-# output "nagios_user" {
-#     value = "${null_resource.nagios_user.user}"
-# }
+

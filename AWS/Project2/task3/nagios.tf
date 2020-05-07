@@ -7,7 +7,8 @@
 #         host            = "${aws_instance.nagiosserver.public_ip}"
 #     }
 #     inline = [
-#       "cat /usr/local/nagios/etc/htpasswd.users",
-#       ]  
+#       "sudo yum install curl -y",
+#       "sudo curl https://assets.nagios.com/downloads/nagiosxi/install.sh | sudo sh",
+#     ]  
 #   }    
 # }
