@@ -2,7 +2,7 @@ environment = "stage"
 region = "us-west-2"
 s3_bucket = "tuba-terraform-eks"              #Will be used to set backend.tf
 s3_folder_project = "application"            #Will be used to set backend.tf
-s3_folder_region = "us-west-2"               #Will be used to set backend.tf
+s3_folder_region = "us-east-1"               #Will be used to set backend.tf
 s3_folder_type = "state"                     #Will be used to set backend.tf
 s3_tfstate_file = "infrastructure.tfstate_oregon.jason"   #Will be used to set backend.tf
 
