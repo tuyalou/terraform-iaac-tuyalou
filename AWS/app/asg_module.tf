@@ -7,7 +7,6 @@ module "ASG_TASK" {
     min_size = 1 
 } 
 
-
 terraform { 
   required_version = "0.11.14"
   backend "s3" { 
