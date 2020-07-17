@@ -1,4 +1,4 @@
-environment = "dev" 
+environment = "qa" 
 s3_bucket = "sdlc-tuba-qa" #Will be used to set backend.tf 
 s3_folder_project = "vet" #Will be used to set backend.tf 
 s3_folder_region = "us-east-2" #Will be used to set backend.tf 
