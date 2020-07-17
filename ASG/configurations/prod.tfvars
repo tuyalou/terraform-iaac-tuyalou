@@ -1,4 +1,4 @@
-environment = "dev" 
+environment = "prod" 
 s3_bucket = "sdlc-tuba-prod" #Will be used to set backend.tf 
 s3_folder_project = "vet" #Will be used to set backend.tf 
 s3_folder_region = "ue-west-1" #Will be used to set backend.tf 
